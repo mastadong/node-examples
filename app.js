@@ -1,4 +1,8 @@
-const rect = require('./rectangle');
+//CommonJS - uses the 'require' statement below.
+//const rect = require('./rectangle');
+
+//ES6 Import-Export (requires modification in package.json or insertion of script lines to specify that modules are being used.)
+import { calculateRectangle as rect } from './rectangle.js';
 
 function solveRectangle(length, width){
     console.log(`Solving for rectangle with dimensions: ${length}, ${width}`);
