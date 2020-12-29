@@ -1,17 +1,17 @@
-const rect = {
-    perimeter: (x, y) => 2 * (x + y),
-    area: (x, y) => x * y
-}
+const rect = require('./rectangle');
 
 function solveRectangle(length, width){
     console.log(`Solving for rectangle with dimensions: ${length}, ${width}`);
 
-    if(length <= 0 || width <= 0){
-        console.log(`No negative or zero dimensions are allowed.  You provided: ${length}, ${width}`);
-    } else {
-        console.log(`Area is: ${rect.area(length, width)}`);
-        console.log(`Perimeter is: ${rect.perimeter(length, width)}`);
-    }
+    rect(length, width, (err, rectangle) => {
+
+        if(err){
+            console.log('ERROR: ', err.message);
+        } else {
+            console.log(`Area is: ${rectangle.area()}`);
+            console.log(`Perimeter is: ${rectangle.perimeter()}`);
+        }
+    });
 }
 
 //Test calls
